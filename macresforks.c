@@ -30,6 +30,8 @@ $ sudo cp macresforks /usr/local/bin   # ensure it's in your path
 #############################################################################
 */
 
+const char *VERSION = "0.0.4";
+
 // Reads a null terminated string from f, and returns it.
 //  - returns non-zero pointer to string on success, or EOF
 //  - returned string should be free()d by caller.
@@ -142,13 +144,28 @@ int isVerifiedResFork(char *str)
 void help()
 {
     puts("usage: find . -name '._*' -print0 | macresforks | xargs -r -0 rm");
+    puts("");
+    puts("  --help     display help text");
+    puts("  --version  display version details");
+}
+
+void version()
+{
+    printf("macresforks %s\n", VERSION);
 }
 
 int main(int argc, char *argv[])
 {
-    if (argc >= 2 && strcmp(argv[1], "--help") == 0)
+    if (argc >= 2)
     {
-        help();
+        if (strcmp(argv[1], "--help") == 0)
+        {
+            help();
+        }
+        else if (strcmp(argv[1], "--version") == 0)
+        {
+            version();
+        }
         return 0;
     }
 
@@ -159,6 +176,7 @@ int main(int argc, char *argv[])
         if (isVerifiedResFork(str))
         {
             fprintf(stdout, "%s", str);
+            fprintf(stdout, "%c", '\0');
         }
         free(str);
     }

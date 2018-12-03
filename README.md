@@ -14,6 +14,8 @@ Which can be improved by piping through `macresforks`, like so:
 find . -name '._' -print0 | macresforks | xargs -0 -r rm
 ```
 
+(nb: omit the `-r` option to `xargs` on macosx as it doesn't support it)
+
 ## Installation
 
 ```
