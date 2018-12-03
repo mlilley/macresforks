@@ -25,8 +25,7 @@ Build:
 $ make
 
 Install:
-$ sudo cp macresforks /usr/local/bin  # or wherever, then make sure that 
-(or put it wherever; just make sure that wherever is in your PATH)
+$ sudo cp macresforks /usr/local/bin   # ensure it's in your path
 
 #############################################################################
 */
