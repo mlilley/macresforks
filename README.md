@@ -1,3 +1,5 @@
+DEPRECATED - Please use https://github.com/mlilley/appledouble instead.
+
 # MacResForks
 
 Assists in the removal of mac resourse fork files from non-mac filesystems.
